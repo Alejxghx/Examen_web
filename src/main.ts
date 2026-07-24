@@ -40,7 +40,7 @@ async function iniciarAplicacion(): Promise<void> {
     ));
   } catch (error) {
     // Si la fuente falla, el usuario recibe una explicación en lugar de una pantalla vacía.
-    contenido.innerHTML = `<p class="error">No se pudo cargar el catálogo: ${String(error)}</p>`;
+    contenido.innerHTML = `<p class="error">No se pudieron cargar los datos: ${String(error)}</p>`;
   }
 }
 
