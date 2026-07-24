@@ -1,0 +1,8 @@
+Aquí van las 3 pantallas de la temática PAPELERIA:
+
+  01-listado.png  -> Listado del catálogo
+  02-crear.png    -> Formulario de creación
+  03-detalle.png  -> Listado/detalle de las transacciones
+
+Son su ÚNICA especificación funcional.
+CARPETA BLOQUEADA — NO MODIFICAR
