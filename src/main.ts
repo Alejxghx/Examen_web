@@ -1,9 +1,9 @@
 // El punto de entrada solo conoce la fábrica: nunca importa una fuente concreta.
 import { FUENTE_ACTIVA, obtenerFuenteDatos } from "./datos";
-import { crearPantallaListado } from "./pantallas/PantallaListado";
+import { crearPantallaCrearPedido } from "./pantallas/PantallaCrearPedido";
 import "./styles.css";
 
-/** Prepara la estructura común y carga la Pantalla 01 al iniciar la aplicación. */
+/** Prepara la estructura común y carga la Pantalla 02 al iniciar la aplicación. */
 async function iniciarAplicacion(): Promise<void> {
   // Localiza el único nodo que Vite entrega para montar la aplicación.
   const raiz = document.querySelector<HTMLDivElement>("#app");
@@ -25,8 +25,12 @@ async function iniciarAplicacion(): Promise<void> {
 
   try {
     // La fábrica devuelve memoria, JSON o API sin cambiar el código de la interfaz.
-    const articulos = await obtenerFuenteDatos().listarArticulos();
-    contenido.append(crearPantallaListado(articulos));
+    const fuente = obtenerFuenteDatos();
+    const [articulos, clientes] = await Promise.all([
+      fuente.listarArticulos(),
+      fuente.listarClientes(),
+    ]);
+    contenido.append(crearPantallaCrearPedido(articulos, clientes, fuente.crearPedido));
   } catch (error) {
     // Si la fuente falla, el usuario recibe una explicación en lugar de una pantalla vacía.
     contenido.innerHTML = `<p class="error">No se pudo cargar el catálogo: ${String(error)}</p>`;

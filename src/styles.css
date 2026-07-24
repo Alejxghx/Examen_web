@@ -49,10 +49,60 @@ th:not(:first-child), td:not(:first-child) { text-align: center; }
 .badge--inactivo { color: #60718d; background: #e1e7f0; }
 .error { color: #b42318; }
 
+/* Formulario de la Pantalla 02: limita el ancho para conservar la lectura vertical. */
+.nuevo-pedido { max-width: 582px; }
+.nuevo-pedido h2 { margin: 0 0 12px; font-size: 19px; }
+.nuevo-pedido form { display: flex; flex-direction: column; align-items: flex-start; }
+.nuevo-pedido label { margin: 0 0 5px; color: #34435c; font-size: 14px; font-weight: 700; }
+.nuevo-pedido label b { color: #dc2626; }
+.nuevo-pedido select, .nuevo-pedido input {
+  width: 420px;
+  min-height: 37px;
+  margin-bottom: 5px;
+  padding: 7px 9px;
+  color: #223047;
+  border: 1px solid #90a7c6;
+  border-radius: 5px;
+  background: #fff;
+  font: inherit;
+}
+.nuevo-pedido .ayuda { margin: 0 0 17px; color: #007ba8; font-size: 13px; }
+.fila-cliente { display: flex; align-items: flex-start; gap: 15px; width: 100%; }
+.fila-cliente select { width: 420px; }
+.boton-secundario, .boton-principal {
+  min-height: 37px;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.boton-secundario { padding: 0 15px; color: #007da9; border: 2px solid #00a9d7; background: #fff; }
+.boton-principal { min-width: 198px; padding: 0 18px; color: #fff; border: 0; background: #04acd8; }
+.boton-principal:disabled { cursor: not-allowed; opacity: 0.55; }
+.resumen-total {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  margin: 13px 0 7px;
+  padding: 13px 18px;
+  border: 1px solid #c4d2e4;
+  border-radius: 8px;
+  background: #f0f4f9;
+}
+.resumen-total strong { font-size: 21px; }
+.resumen-total span { margin-top: 2px; color: #637895; font-size: 13px; }
+.mensaje-error, .mensaje-exito { min-height: 20px; margin: 0 0 7px; font-size: 13px; }
+.mensaje-error { color: #b42318; }
+.mensaje-exito { color: #087b3b; }
+
 /* Ajustes para pantallas pequeñas: cabecera vertical y tabla desplazable. */
 @media (max-width: 600px) {
   .aplicacion { width: calc(100% - 24px); margin: 12px auto; }
   .cabecera { align-items: flex-start; flex-direction: column; gap: 3px; padding: 13px 16px; }
   .contenido { padding: 16px; overflow-x: auto; }
   th, td { padding: 9px; }
+  .nuevo-pedido, .nuevo-pedido select, .nuevo-pedido input, .resumen-total { width: 100%; }
+  .fila-cliente { align-items: stretch; flex-direction: column; gap: 4px; }
+  .fila-cliente select { width: 100%; }
+  .boton-secundario { align-self: flex-start; }
 }
